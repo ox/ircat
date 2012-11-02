@@ -33,8 +33,15 @@ end
 # make a single file, the directory where to put it afterwards
 def make(file_name, dir_out="bin")
   Dir.mkdir(dir_out) unless File.directory?(dir_out)
-  res = `lispy #{file_name}.ls #{File.join(dir_out, file_name)}.js`
-  puts res unless res.empty?
+  infile = "#{File.join(Dir.pwd, file_name)}.ls"
+  outfile = "#{File.join(dir_out, file_name)}.js"
+  
+  if not File.exists?(outfile) or File.new(infile).mtime > File.new(outfile).mtime
+    puts "\t#{infile} -> #{outfile}"
+    res = `lispy #{infile} #{outfile}`
+  end
+
+  puts res unless res.nil? or res.empty?
 end
 
 # take all the file names and make them into a directory
@@ -49,6 +56,7 @@ task :make_server do
     puts "making server in #{path}"
     make_all(Dir.glob("*.ls"), server_bin)
   end
+  puts ""
 end
 
 task :make_webapp do
@@ -56,6 +64,7 @@ task :make_webapp do
     puts "making webapp in #{path}"
     make_all(Dir.glob("*.ls"), webapp_bin)
   end
+  puts ""
 end
 
 task :make_all => [:make_server, :make_webapp] do

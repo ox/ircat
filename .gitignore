@@ -1,0 +1,3 @@
+node_modules/
+bin/server.js
+bin/public/js/app/*

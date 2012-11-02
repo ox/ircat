@@ -42,7 +42,8 @@
               navBarLinks))))           ;;navBarLinks added here
       bodyContent                       ;;bodyContent added here
       (script {src:"//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",type:"text/javascript"})
-      (script {type:"text/javascript",src:"/js/bootstrap.js"}))))
+      (script {type:"text/javascript",src:"/js/bootstrap.js"})
+      (script {type:"text/javascript",src:"/js/app/app.js"}))))
 
 ;; the navBarLinks template
 

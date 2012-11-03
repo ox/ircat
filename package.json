@@ -1,0 +1,17 @@
+{
+  "name": "ircat",
+  "version": "0.0.0",
+  "description": "web front end for irc. backed by node.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ArtemTitoulenko/ircat.git"
+  },
+  "keywords": [
+    "irc"
+  ],
+  "author": "artem titoulenko + cole brown",
+  "license": "BSD",
+  "dependencies": {
+    "irc" : "latest"
+  }
+}
